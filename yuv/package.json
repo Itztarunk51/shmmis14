@@ -1,0 +1,15 @@
+{
+  "name": "yuv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "tarun",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^14.1.1",
+    "web3": "^1.6.0"
+  }
+}

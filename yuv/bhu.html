@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sudoku</title>
+    <link rel="stylesheet" type="text/css" href="mika.css">
+   
+   
+
+
+   <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" integrity="sha384-vjV0biJsh6jvQPNqlNJS6Y0V8W0Kx/9/7fIc0pLjK4PDmJyHs+4Y4gq3XlOjxTJv" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.6.0/dist/web3.min.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" type="text/css" href="mika.css">
+
+</head>
+<body>
+    <h1>Sudoku</h1>
+    <button id="connect-wallet-button">Connect Wallet</button>
+    <p id="connected-wallet-address"></p>
+    <h2>Sudoku Board</h2>
+    <table id="sudoku-board">
+        <tbody>
+            <tr>
+                <td><input type="number" id="cell-0-0"></td>
+                <td><input type="number" id="cell-0-1"></td>
+                <td><input type="number" id="cell-0-2"></td>
+                <td><input type="number" id="cell-0-3"></td>
+                <td><input type="number" id="cell-0-4"></td>
+                <td><input type="number" id="cell-0-5"></td>
+                <td><input type="number" id="cell-0-6"></td>
+                <td><input type="number" id="cell-0-7"></td>
+                <td><input type="number" id="cell-0-8"></td>
+            </tr>
+            <tr>
+                <td><input type="number" id="cell-0-0"></td>
+                <td><input type="number" id="cell-0-1"></td>
+                <td><input type="number" id="cell-0-2"></td>
+                <td><input type="number" id="cell-0-3"></td>
+                <td><input type="number" id="cell-0-4"></td>
+                <td><input type="number" id="cell-0-5"></td>
+                <td><input type="number" id="cell-0-6"></td>
+                <td><input type="number" id="cell-0-7"></td>
+                <td><input type="number" id="cell-0-8"></td>
+            </tr>
+            <tr>
+                <td><input type="number" id="cell-0-0"></td>
+                <td><input type="number" id="cell-0-1"></td>
+                <td><input type="number" id="cell-0-2"></td>
+                <td><input type="number" id="cell-0-3"></td>
+                <td><input type="number" id="cell-0-4"></td>
+                <td><input type="number" id="cell-0-5"></td>
+                <td><input type="number" id="cell-0-6"></td>
+                <td><input type="number" id="cell-0-7"></td>
+                <td><input type="number" id="cell-0-8"></td>
+            </tr>
+            <tr>
+                <td><input type="number" id="cell-0-0"></td>
+                <td><input type="number" id="cell-0-1"></td>
+                <td><input type="number" id="cell-0-2"></td>
+                <td><input type="number" id="cell-0-3"></td>
+                <td><input type="number" id="cell-0-4"></td>
+                <td><input type="number" id="cell-0-5"></td>
+                <td><input type="number" id="cell-0-6"></td>
+                <td><input type="number" id="cell-0-7"></td>
+                <td><input type="number" id="cell-0-8"></td>
+            </tr>
+            <tr>
+                <td><input type="number" id="cell-0-0"></td>
+                <td><input type="number" id="cell-0-1"></td>
+                <td><input type="number" id="cell-0-2"></td>
+                <td><input type="number" id="cell-0-3"></td>
+                <td><input type="number" id="cell-0-4"></td>
+                <td><input type="number" id="cell-0-5"></td>
+                <td><input type="number" id="cell-0-6"></td>
+                <td><input type="number" id="cell-0-7"></td>
+                <td><input type="number" id="cell-0-8"></td>
+            </tr>
+             <tr>
+                <td><input type="number" id="cell-0-0"></td>
+                <td><input type="number" id="cell-0-1"></td>
+                <td><input type="number" id="cell-0-2"></td>
+                <td><input type="number" id="cell-0-3"></td>
+                <td><input type="number" id="cell-0-4"></td>
+                <td><input type="number" id="cell-0-5"></td>
+                <td><input type="number" id="cell-0-6"></td>
+                <td><input type="number" id="cell-0-7"></td>
+                <td><input type="number" id="cell-0-8"></td>
+            </tr>
+            <tr>
+                <td><input type="number" id="cell-0-0"></td>
+                <td><input type="number" id="cell-0-1"></td>
+                <td><input type="number" id="cell-0-2"></td>
+                <td><input type="number" id="cell-0-3"></td>
+                <td><input type="number" id="cell-0-4"></td>
+                <td><input type="number" id="cell-0-5"></td>
+                <td><input type="number" id="cell-0-6"></td>
+                <td><input type="number" id="cell-0-7"></td>
+                <td><input type="number" id="cell-0-8"></td>
+            </tr>
+             <tr>
+                <td><input type="number" id="cell-0-0"></td>
+                <td><input type="number" id="cell-0-1"></td>
+                <td><input type="number" id="cell-0-2"></td>
+                <td><input type="number" id="cell-0-3"></td>
+                <td><input type="number" id="cell-0-4"></td>
+                <td><input type="number" id="cell-0-5"></td>
+                <td><input type="number" id="cell-0-6"></td>
+                <td><input type="number" id="cell-0-7"></td>
+                <td><input type="number" id="cell-0-8"></td>
+            </tr>
+            <tr>
+                <td><input type="number" id="cell-0-0"></td>
+                <td><input type="number" id="cell-0-1"></td>
+                <td><input type="number" id="cell-0-2"></td>
+                <td><input type="number" id="cell-0-3"></td>
+                <td><input type="number" id="cell-0-4"></td>
+                <td><input type="number" id="cell-0-5"></td>
+                <td><input type="number" id="cell-0-6"></td>
+                <td><input type="number" id="cell-0-7"></td>
+                <td><input type="number" id="cell-0-8"></td>
+            </tr>
+            
+        </tbody>
+    </table>
+    <button id="check-win-button">Check Win</button>
+    <button id="compute-brute-force-button">Compute Brute Force</button>
+    <p id="result"></p>
+<script>
+    const connectWalletButton = document.getElementById('connect-wallet-button');
+    const connectedWalletAddress = document.getElementById('connected-wallet-address');
+
+    connectWalletButton.addEventListener('click', async () => {
+        try {
+            // Prompt user to connect wallet
+            await window.ethereum.enable();
+
+            // Get current account address and display it
+            const accounts = await provider.listAccounts();
+            const currentAccount = accounts[0];
+            connectedWalletAddress.innerHTML = `Connected to wallet with address: ${currentAccount}`;
+        } catch (error) {
+            console.error(error);
+            connectedWalletAddress.innerHTML = 'Error connecting to wallet';
+        }
+    }); 
+const web3 = new Web3('https://sphinx.shardeum.org/');
+
+        const contractAddress = '0xcc2bDFAA45FD5fe6021117F198491134C3F75aE9'; // Replace with the contract address
+        const contractABI = [
+	{
+		"inputs": [
+			{
+				"internalType": "uint8[9][9]",
+				"name": "board",
+				"type": "uint8[9][9]"
+			}
+		],
+		"name": "checkWin",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "pure",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8[9][9]",
+				"name": "board",
+				"type": "uint8[9][9]"
+			}
+		],
+		"name": "computeBruteforce",
+		"outputs": [
+			{
+				"internalType": "uint8[9][9]",
+				"name": "",
+				"type": "uint8[9][9]"
+			}
+		],
+		"stateMutability": "pure",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8[9][9]",
+				"name": "board",
+				"type": "uint8[9][9]"
+			},
+			{
+				"internalType": "uint8",
+				"name": "row",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "col",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "num",
+				"type": "uint8"
+			}
+		],
+		"name": "isValidMove",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "pure",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8[9][9]",
+				"name": "board",
+				"type": "uint8[9][9]"
+			},
+			{
+				"internalType": "uint8",
+				"name": "row",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "col",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8[9][9]",
+				"name": "solution",
+				"type": "uint8[9][9]"
+			}
+		],
+		"name": "solveBoard",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "pure",
+		"type": "function"
+	}
+];
+
+        let sudokuContract;
+        let provider;
+        let signer;
+
+
+    async function checkWin() {
+        // Get input values from the Sudoku board
+        const board = [];
+        for (let i = 0; i < 9; i++) {
+            const row = [];
+            for (let j = 0; j < 9; j++) {
+                const cell = document.getElementById(`cell-${i}-${j}`);
+                row.push(parseInt(cell.value));
+            }
+            board.push(row);
+        }
+
+        // Call the checkWin function on the smart contract
+        const isWin = await sudokuContract.checkWin(board);
+
+        // Display the result
+        const result = document.getElementById('result');
+        if (isWin) {
+            result.innerHTML = 'Congratulations, you won!';
+        } else {
+            result.innerHTML = 'Sorry, you did not win.';
+        }
+    }
+
+  async function computeBruteForce() {
+    // Get input values from the Sudoku board
+    const board = [];
+    for (let i = 0; i < 9; i++) {
+        const row = [];
+        for (let j = 0; j < 9; j++) {
+            const cell = document.getElementById(`cell-${i}-${j}`);
+            row.push(parseInt(cell.value));
+        }
+        board.push(row);
+    }
+
+    // Call the computeBruteforce function on the smart contract
+    const solution = await sudokuContract.computeBruteforce(board);
+
+    // Display the solution
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            const cell = document.getElementById(`cell-${i}-${j}`);
+            cell.value = solution[i][j];
+        }
+    }
+}
+
+
+</script>
+
+</body>
+</html>
